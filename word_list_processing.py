@@ -57,9 +57,6 @@ if __name__ == "__main__":
     actual_no_of_unique_words, \
     actual_top_five_frequent_occurrence = word_list_processing(word_list)
 
-    print(actual_top_five_frequent_occurrence)
-    print(expected_words_in_more_than_one_list)
-
     assert (expected_words_in_more_than_one_list == actual_words_in_more_than_one_list), \
         'Expected list of word appeared in more than once is not matching with actual list'
 
