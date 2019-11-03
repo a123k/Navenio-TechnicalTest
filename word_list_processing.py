@@ -7,7 +7,6 @@ def word_list_processing(list_of_list):
     total number of unique words across all lists,
     top five frequent words in the all lists from single list consists of list of words
     :param list_of_list: single list consists of any number of lists (1..n),
-    :return:
     """
 
     unique_words = set()
