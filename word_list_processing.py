@@ -1,18 +1,18 @@
 from collections import Counter
 
 
-def word_list_processing(list_of_list):
+def word_list_processing(list_of_lists):
     """
     Identifies words that appear in more than one list,
     total number of unique words across all lists,
     top five frequent words in the all lists from single list consists of list of words
-    :param list_of_list: single list consists of any number of lists (1..n),
+    :param list_of_lists: single list consists of any number of lists (1..n),
     """
 
     unique_words = set()
     all_words = []
 
-    for individual_list in list_of_list:
+    for individual_list in list_of_lists:
         unique_words_in_list = set(individual_list)
         unique_words.update(unique_words_in_list)
         for word_in_list in unique_words_in_list:
@@ -20,13 +20,12 @@ def word_list_processing(list_of_list):
 
     no_of_unique_words = len(unique_words)
 
-    print("The total number of unique words across all lists", no_of_unique_words)
+    print("The total number of unique words across all lists : -", no_of_unique_words)
 
     #  Top five frequent words in the all lists
     counter = Counter(all_words)
     top_five_frequent_occurrence = counter.most_common(5)
-    for word_count in top_five_frequent_occurrence:
-        print(word_count[0], "-", word_count[1])
+    print('Top five frequent words in the all lists : -', top_five_frequent_occurrence)
 
     # Words that appear in more than one list
     most_occurrence_of_all_words = counter.most_common(len(unique_words))
@@ -34,7 +33,7 @@ def word_list_processing(list_of_list):
     for word_count in most_occurrence_of_all_words:
         if word_count[1] > 1:
             words_in_more_than_one_list.append(word_count[0])
-    print('Words appearing in more than one list', words_in_more_than_one_list)
+    print('Words appearing in more than one list : -', words_in_more_than_one_list)
 
     return words_in_more_than_one_list, no_of_unique_words, top_five_frequent_occurrence
 
